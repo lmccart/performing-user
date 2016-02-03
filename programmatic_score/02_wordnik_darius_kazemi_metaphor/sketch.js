@@ -1,7 +1,7 @@
 // Apply for a Wordnik key here: http://developer.wordnik.com/
 // Wordnik API docs http://developer.wordnik.com/docs.html
 
-var wordnik_key = 'WORDNIK_API_KEY';
+var wordnik_key = 'bab9b9f121cb78489fc090f0e3d030f827ea4caceba5314f2';
 
 var statement =   "";
 
