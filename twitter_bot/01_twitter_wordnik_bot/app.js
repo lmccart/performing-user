@@ -13,17 +13,19 @@ var Twit = require('twit');
 
 // Set up Twitter credentials
 var T = new Twit({
-  consumer_key:         'TWITTER_CONSUMER_KEY', 
-  consumer_secret:      'TWITTER_CONSUMER_SECRET',
-  access_token:         'TWITTER_ACCESS_TOKEN',
-  access_token_secret:  'TWITTER_ACCESS_TOKEN_SECRET'
+    consumer_key: 'Qq1AxRCXmvC5E8HZekwtGbyWW',
+    consumer_secret: 'OW0kqapybrn9kg5Ioa4KDf6DTp4jo9YtFBimGG6EtFQcRkAd73',
+    access_token: '14381020-yEBlElWMiY3nm673NCFNo3081h4OveXkGwuAZ0xaA',
+    access_token_secret: 'nppZ4utN9zmW205TN4PyGPPY10p9iT2Sz6kXrWoWG7MOw'
 });
 
-var wordnik_key = 'WORDNIK_API_KEY';
+
+var wordnik_key = 'bab9b9f121cb78489fc090f0e3d030f827ea4caceba5314f2';
+
 
 // setInterval would tweet every N milliseconds
 // setInterval(createTweet, 5000);
-createTweet();
+// createTweet();
 
 function createTweet() {
 
@@ -36,7 +38,6 @@ function createTweet() {
 
 function handleData(data) {
   data = JSON.parse(data);
-  //console.log(data[0].word)
   var tweet = 'I am feeling '+data[0].word+' and '+data[1].word+' right now.';   
   console.log(tweet);
   T.post('statuses/update', { status: tweet}, function(err, reply) {

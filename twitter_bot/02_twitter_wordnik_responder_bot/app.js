@@ -11,13 +11,15 @@ var restclient = require('node-restclient');
 
 var Twit = require('twit');
 
-Set up Twitter credentials
 var T = new Twit({
-  consumer_key:         'TWITTER_CONSUMER_KEY', 
-  consumer_secret:      'TWITTER_CONSUMER_SECRET',
-  access_token:         'TWITTER_ACCESS_TOKEN',
-  access_token_secret:  'TWITTER_ACCESS_TOKEN_SECRET'
+    consumer_key: 'Qq1AxRCXmvC5E8HZekwtGbyWW',
+    consumer_secret: 'OW0kqapybrn9kg5Ioa4KDf6DTp4jo9YtFBimGG6EtFQcRkAd73',
+    access_token: '14381020-yEBlElWMiY3nm673NCFNo3081h4OveXkGwuAZ0xaA',
+    access_token_secret: 'nppZ4utN9zmW205TN4PyGPPY10p9iT2Sz6kXrWoWG7MOw'
 });
+
+
+var wordnik_key = 'bab9b9f121cb78489fc090f0e3d030f827ea4caceba5314f2';
 
 var wordnik_key = 'WORDNIK_API_KEY';
 
@@ -27,8 +29,9 @@ var max_id = 1;
 runResponder();
 
 function runResponder() {
-  T.get('statuses/mentions_timeline', {count:1, since_id:max_id}, function (e,r) {
-    console.log(r)
+  T.get('statuses/mentions_timeline', {count:100, since_id:max_id}, function (e,r) {
+    // console.log(r)
+    // respondToTweet(r[0]);
     if (r) {
       for(var i=0;i<r.length;i++) {
         console.log(r[i].text);

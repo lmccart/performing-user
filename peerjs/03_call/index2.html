@@ -1,0 +1,38 @@
+<html>
+<head>
+<script src="http://cdn.peerjs.com/0.3/peer.js"></script>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+</head>
+
+<body>
+<video id='their-video' autoplay></video>
+
+<script>
+  var peer = new Peer('user2', {key: 'jcktodq2ztcsor'}); 
+
+  navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+  navigator.getUserMedia({video: true, audio: true}, function(stream) {
+
+    var call = peer.call('user1', stream);
+    displayCall(call);
+
+    peer.on('call', function(call){
+      call.answer(stream);
+      displayCall(call);
+    });
+
+  }, function(err) {
+    console.log('Failed to get local stream' ,err);
+  });
+
+
+
+  function displayCall(call) {
+    call.on('stream', function(stream){
+      $('#their-video').prop('src', URL.createObjectURL(stream));
+    });
+  }
+
+</script>
+</body>
+</html>

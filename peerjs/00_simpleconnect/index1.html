@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="http://cdn.peerjs.com/0.3/peer.js"></script>
+</head>
+
+<body>
+<script>
+var peer = new Peer('user1', {key: 'jcktodq2ztcsor'}); 
+console.log(peer.id)
+
+// Make a connection
+var conn = peer.connect('user2');
+conn.on('open', function(){
+  conn.send('hi!');
+  console.log('connected');
+});
+
+// Receive a connection
+peer.on('connection', function(conn) {
+  conn.on('data', function(data){
+    // Will print 'hi!'
+    console.log('received message: '+data);
+  });
+});
+</script>
+</body>
+</html>

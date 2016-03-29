@@ -1,0 +1,46 @@
+<html>
+<head>
+<script src="http://cdn.peerjs.com/0.3/peer.js"></script>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+</head>
+
+<body>
+<input type='text' id='message'>
+<button id='send'>send</button>
+<br>
+<div id='chat'></div>
+
+<script>
+var peer = new Peer('user1', {key: 'jcktodq2ztcsor'}); 
+console.log(peer.id)
+
+// Make a connection
+var conn = peer.connect('user2');
+conn.on('open', function(){
+  conn.send('hi!');
+  console.log('connected');
+});
+
+// Receive a connection
+peer.on('connection', function(conn) {
+  conn.on('data', function(data){
+    // Will print 'hi!'
+    console.log('received message: '+data);
+    $('#chat').append('<p>'+data+'</p>');
+  });
+});
+
+$('#send').click(send);
+
+function send() {
+  var data = $('#message').val();
+  conn.send(data);
+  $('#chat').append('<p>'+data+'</p>');
+}
+
+
+
+</script>
+
+</body>
+</html>

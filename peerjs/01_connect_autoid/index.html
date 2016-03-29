@@ -1,0 +1,59 @@
+<html>
+<head>
+<script src="http://cdn.peerjs.com/0.3/peer.js"></script>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>
+
+$(document).ready(function(){ 
+  
+  // Set up peer object
+  var peer = new Peer({key: 'jcktodq2ztcsor'}); 
+
+  // Display auto-generated ID
+  peer.on('open', function(){
+    $('#my-id').text(peer.id);
+  });
+
+
+  // Attach listener to connect button
+  $('#connect').click(connect);
+
+
+  // Receive a connection
+  peer.on('connection', function(conn) {
+    $('#connected-id').text(conn.peer);
+    console.log('connected');
+    conn.on('data', function(data){
+      console.log('received message: '+data);
+    });
+  });
+
+
+  function connect() {
+    // Grab the ID to connect to
+    var id = $('#other-id').val();
+
+    // Make a connection
+    var conn = peer.connect(id);
+    conn.on('open', function(){
+      conn.send('hi!');
+      $('#connected-id').text(id);
+      console.log('connected');
+    });
+  }
+
+
+
+
+});
+
+</script>
+</head>
+
+<body>
+My ID: <span id='my-id'></span><br><br>
+<input type='text' id='other-id'>
+<button id='connect'>connect!</button><br><br>
+Connected to: <span id='connected-id'></span>
+</body>
+</html>
