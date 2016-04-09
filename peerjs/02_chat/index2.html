@@ -12,29 +12,41 @@
 
 <script>
 var peer = new Peer('user2', {key: 'jcktodq2ztcsor'}); 
-console.log(peer.id)
+var connection;
 
 // Make a connection
-var conn = peer.connect('user1');
-conn.on('open', function(){
-  conn.send('hi!');
-  console.log('connected');
-});
+connection = peer.connect('user1');
+attachConnectionListeners();
+
 
 // Receive a connection
 peer.on('connection', function(conn) {
-  conn.on('data', function(data){
-    // Will print 'hi!'
-    console.log('received message: '+data);
-    $('#chat').append('<p>'+data+'</p>');
-  });
+  connection = conn;
+  attachConnectionListeners();
 });
+
+
+
+function attachConnectionListeners() {
+  connection.on('open', function() {
+    console.log("CONNECTION OPENEED");
+
+    // Receive messages
+    connection.on('data', function(data) {
+      $('#chat').append('<p>'+data+'</p>');
+    });
+
+    // Send a test message
+    connection.send('Hello!');
+  });
+}
+
 
 $('#send').click(send);
 
 function send() {
   var data = $('#message').val();
-  conn.send(data);
+  connection.send(data);
   $('#chat').append('<p>'+data+'</p>');
 }
 

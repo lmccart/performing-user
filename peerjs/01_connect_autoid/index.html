@@ -8,6 +8,7 @@ $(document).ready(function(){
   
   // Set up peer object
   var peer = new Peer({key: 'jcktodq2ztcsor'}); 
+  var connection;
 
   // Display auto-generated ID
   peer.on('open', function(){
@@ -18,27 +19,31 @@ $(document).ready(function(){
   // Attach listener to connect button
   $('#connect').click(connect);
 
-
   // Receive a connection
   peer.on('connection', function(conn) {
-    $('#connected-id').text(conn.peer);
-    console.log('connected');
-    conn.on('data', function(data){
-      console.log('received message: '+data);
-    });
+    connection = conn;
+    attachConnectionListeners();
   });
 
-
   function connect() {
-    // Grab the ID to connect to
     var id = $('#other-id').val();
+    connection = peer.connect(id);
+    attachConnectionListeners();
+  }
 
-    // Make a connection
-    var conn = peer.connect(id);
-    conn.on('open', function(){
-      conn.send('hi!');
-      $('#connected-id').text(id);
-      console.log('connected');
+
+  function attachConnectionListeners() {
+    connection.on('open', function() {
+      console.log("CONNECTION OPENEED");
+      $('#connected-id').text(connection.peer);
+
+      // Receive messages
+      connection.on('data', function(data) {
+        console.log('Received', data);
+      });
+
+      // Send a test message
+      connection.send('Hello!');
     });
   }
 
