@@ -7,7 +7,7 @@ We can ask: How do the technologies we use choreograph our actions, provoke us t
 This is a score for performing user.
 
 
-### SCORE
+### ...
 
 **User instructions.** Collect a set of instructions, manuals, and/or guides for using various technologies. This might mean a setup guide for your Nest thermostat, steps for creating an account, an advice column about how to use social media, assembly instructions for Ikea furniture, etc. _How do you define the terms “technology” and “instructions”? What has informed your definitions?_
 
