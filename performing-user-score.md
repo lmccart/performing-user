@@ -14,10 +14,10 @@ This is a score for performing user.
 
 **User error.** Creatively reinterpret one or more of the instruction sets in a gesture that reveals something about yourself. _Who were these instructions created for? What assumptions about the user does the instruction set make?_
 
-  * Some ideas or starting points:
-    * Create and perform a new set of instructions inspired by the found set.
-    * Perform the instructions as stated but not as intended.
-    * Break the rules.
+  Some ideas or starting points:
+  * Create and perform a new set of instructions inspired by the found set.
+  * Perform the instructions as stated but not as intended.
+  * Break the rules.
 
 
 **Ritual user.** Create a program that generates a ritual that you repeat at least once a day for one week. Using any type of recording mechanism, capture part(s) of yourself or your action during each repetition. _What effect do you hope this ritual will have? What other rituals do you have in your life, how did they form?_
