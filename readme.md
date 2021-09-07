@@ -1,8 +1,8 @@
 https://lauren-mccarthy.com/Performing-User
 
-UCLA DMA Fall 2018
-NYU ITP Spring 2016
-UCLA DMA Winter 2011
+* UCLA DMA Fall 2018
+* NYU ITP Spring 2016
+* UCLA DMA Winter 2011
 
 How do the technologies we use on a daily basis choreograph our actions, cause us to perform, and open spaces for improvisation? What are the ways we perform for each other, and how do the internet, mobile phones, and other networked technologies create new performance sites and possibilities?
 
