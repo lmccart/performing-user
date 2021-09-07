@@ -56,4 +56,6 @@ This is a score for performing user.
   * Anything as long as you can explain why you consider it a “device”
 
 
+### ...
 
+This score draws on ideas from Social Hacking, a course taught in collaboration with Kyle McDonald at NYU ITP, Performing User, a course taught at NYU ITP and UCLA DMA, and lessons from the development of p5.js since 2013.
